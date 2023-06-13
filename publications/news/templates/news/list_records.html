@@ -1,0 +1,23 @@
+{% extends 'root.html' %}
+{% load thumbnail %}
+{% load static %}
+{% block content %}
+    <form action="{% url 'records:record' %}">
+        <input type="search" placeholder="Найти..." aria-label="Search" name="search">
+        <button type="submit">Найти</button>
+    </form>
+    {% for record in records %}
+        <a style="width: 500px; display: flex; flex-direction: column" href="{% url 'records:detail' record.id %}">
+            <div class="head_news">
+                {% thumbnail record.logo '50x50' as im %}
+                    <img style="border-radius: 50px" src="{{im.url}}" alt="">
+                {% endthumbnail %}
+                <h1>{{ record.name }} </h1>
+            </div>
+            {% thumbnail record.image '500x300' as im %}
+                <img src="{{im.url}}" alt="">
+            {% endthumbnail %}
+            <p>{{ record.date }}</p>
+        </a>
+    {% endfor %}
+{% endblock %}

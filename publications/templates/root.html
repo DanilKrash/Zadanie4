@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{titilee|default:'страница'}}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header class="header-bar">
+        <a class="menu" href="{% url 'records:record' %}">Главная</a>
+        <a class="menu" href="{% url 'records:create' %}">Создать новость</a>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

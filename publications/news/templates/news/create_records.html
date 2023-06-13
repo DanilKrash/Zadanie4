@@ -1,0 +1,15 @@
+{% extends 'root.html' %}
+{% load static %}
+{% block content %}
+    <div>
+        <form style="display: flex; flex-direction: column; align-items: center" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.name }}
+            {{ form.text }}
+            <p>выбрать логотип {{ form.logo }}</p>
+            <p>выбрать картинку {{ form.image }}</p>
+            <p>{{ form.hidden }} опубликовать</p>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+{% endblock %}

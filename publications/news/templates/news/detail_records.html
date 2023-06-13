@@ -1,0 +1,37 @@
+{% extends 'root.html' %}
+{% load thumbnail %}
+{% load static %}
+{% block content %}
+    <div>
+        <div class="head_news">
+            {% thumbnail detail.logo '50x50' as im %}
+                <img style="border-radius: 50px" src="{{im.url}}" alt="">
+            {% endthumbnail %}
+            <h1>{{ detail.name }} </h1>
+        </div>
+        {% thumbnail detail.image '500' crop="center" as im %}
+            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="">
+        {% endthumbnail %}
+        <p>{{ detail.text }}</p>
+        <p>{{ detail.date }}</p>
+  </div>
+
+    <div>
+        <hr>
+        <h2>Введите комментарий</h2>
+        <form style="margin: 20px" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn" type="submit" value="Оставить">
+        </form>
+
+        {% for comment in comments %}
+            <div style="border: 1px solid black;">
+                <h3>{{ comment.author }}</h3>
+                <p>{{ comment.text }}</p>
+                <p>{{ comment.date }}</p>
+            </div>
+        {% endfor %}
+
+  </div>
+{% endblock %}

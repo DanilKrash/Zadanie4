@@ -1,0 +1,36 @@
+.comment_holder{
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.header-bar{
+    display: flex;
+    height: 50px;
+    background: black;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.menu{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 0 20px 0 20px;
+}
+
+.btn{
+    background: none;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px 20px 10px 20px;
+    cursor: pointer;
+}
+
+.head_news{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
